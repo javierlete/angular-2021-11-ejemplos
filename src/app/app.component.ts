@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Persona } from './persona';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'ejemplos';
+  variablePadreSimple = 'Texto de variablePadreSimple';
+  objetoPadre = {
+    id: 1, nombre: 'Javier'
+  }
+
+  tituloPulsado(persona: Persona): void {
+    alert('Título pulsado ' + persona.nombre);
+  }
 }
