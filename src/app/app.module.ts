@@ -5,16 +5,24 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LabelInputComponent } from './label-input.component';
 import { TituloComponent } from './titulo.component';
+import { MayusculatorPipe } from './mayusculator.pipe';
+import { HighlightDirective } from './highlight.directive';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { MatSliderModule } from '@angular/material/slider';
 @NgModule({
   declarations: [
     AppComponent,
     TituloComponent,
-    LabelInputComponent
+    LabelInputComponent,
+    MayusculatorPipe,
+    HighlightDirective
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatSliderModule
   ],
   providers: [],
   bootstrap: [AppComponent]

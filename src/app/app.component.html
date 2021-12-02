@@ -1,3 +1,7 @@
+<mat-slider #slider min="1" max="100" step="1" value="50"></mat-slider>
+
+<p>{{slider.value}}</p>
+
 <div class="container">
   <app-titulo texto="Texto LITERAL"></app-titulo>
   <app-titulo texto="{{variablePadreSimple}}"></app-titulo>
@@ -7,9 +11,23 @@
   <app-titulo [objeto]="{ id: 2, nombre: 'Pepe' }"></app-titulo>
   <app-titulo texto="Púlsame" [objeto]="objetoPadre" (pulsado)="tituloPulsado($event)"></app-titulo>
 
-  {{objetoPadre.id}} {{objetoPadre.nombre}}
+  <pre>
+  {{objetoPadre.id}} {{objetoPadre.nombre | slice:0:10}}...
+  {{objetoPadre | json}}
+  {{objetoPadre | keyvalue | json}}
+  <table appHighlight="green" class="table table-bordered">
+    <tbody>
+      <tr *ngFor="let par of { dato1: 5, dato2: 3, dato3: 'Yepa'} | keyvalue">
+        <th>{{par.key}}</th>
+        <td>{{par.value}}</td>
+      </tr>
+    </tbody>
+  </table>
+  {{ 'prueba de texto' | mayusculator:5 }}
+  </pre>
   <app-label-input id="id" texto="Id" tipo="number" [(valor)]="objetoPadre.id"></app-label-input>
-  <app-label-input id="nombre" texto="Nombre" tipo="text" [valor]="objetoPadre.nombre" (valorChange)="objetoPadre.nombre = $event"></app-label-input>
+  <app-label-input id="nombre" texto="Nombre" tipo="text" [valor]="objetoPadre.nombre"
+    (valorChange)="objetoPadre.nombre = $event"></app-label-input>
   <app-label-input id="fecha" texto="Fecha" tipo="date"></app-label-input>
 
 </div>
