@@ -10,13 +10,15 @@ import { HighlightDirective } from './highlight.directive';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatSliderModule } from '@angular/material/slider';
+import { FormularioReactivoComponent } from './formulario-reactivo/formulario-reactivo.component';
 @NgModule({
   declarations: [
     AppComponent,
     TituloComponent,
     LabelInputComponent,
     MayusculatorPipe,
-    HighlightDirective
+    HighlightDirective,
+    FormularioReactivoComponent
   ],
   imports: [
     BrowserModule,
