@@ -44,6 +44,10 @@ export class FormularioReactivoComponent {
   }
 
   esValido(control: AbstractControl): boolean {
-    return !(control.invalid && (control.dirty || control.touched));
+    return !control.invalid && (control.dirty || control.touched);
+  }
+
+  esInvalido(control: AbstractControl): boolean {
+    return control.invalid && (control.dirty || control.touched);
   }
 }
