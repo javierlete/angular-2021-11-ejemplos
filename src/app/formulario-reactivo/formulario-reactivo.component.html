@@ -1,1 +1,69 @@
-<p>formulario-reactivo works!</p>
+<form [formGroup]="formulario">
+    <div>
+        <label for="nombre">Nombre</label>
+        <input formControlName="nombre" />
+        <ul *ngIf="!esValido(nombre)">
+            <li *ngIf="nombre.errors?.['required']">
+                El nombre es obligatorio
+            </li>
+            
+            <li *ngIf="nombre.errors?.['minlength']">
+                El nombre debe tener al menos 5 caracteres
+            </li>
+
+        </ul>
+    </div>
+    <div>
+        <label for="apellidos">Apellidos</label>
+        <input formControlName="apellidos" />
+    </div>
+    <div>
+        <label for="dni">Dni</label>
+        <input formControlName="dni" />
+        <ul *ngIf="!esValido(dni)">
+            <li *ngIf="dni.errors?.['pattern']">
+                El DNI debe tener 8 dígitos y una letra
+            </li>
+            <li *ngIf="dni.errors?.['dniValidator']">
+                No concuerda la letra del DNI con el número
+            </li>
+        </ul>
+    </div>
+    <fieldset formGroupName="direccion">
+        <legend>Dirección</legend>
+        <div>
+            <label for="calle">Calle</label>
+            <input formControlName="calle" />
+        </div>
+        <div>
+            <label for="numero">Número</label>
+            <input type="number" formControlName="numero" />
+        </div>
+        <div>
+            <label for="cp">Código Postal</label>
+            <input pattern="\d{5}" formControlName="cp" />
+        </div>
+    </fieldset>
+    <fieldset>
+        <legend>Alias</legend>
+
+        <div formArrayName="alias">
+            <h2>Alias</h2>
+            <button (click)="nuevoAlias()" type="button">Añadir alias</button>
+
+            <div *ngFor="let alias of alias.controls; let i=index">
+                <!-- The repeated alias template -->
+                <label for="alias-{{ i }}">Alias:</label>
+                <input id="alias-{{ i }}" type="text" [formControlName]="i">
+            </div>
+        </div>
+    </fieldset>
+    <button (click)="modificar()">Modificar</button>
+    <button (click)="recibirDatos()">Recibir datos</button>
+</form>
+
+<pre>
+    {{ formulario.status }}
+    {{ formulario.value | json }}
+    {{ datos | json }}
+</pre>
