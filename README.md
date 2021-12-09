@@ -1,3 +1,7 @@
+# Enlaces
+[Cliente JWT](https://www.freakyjolly.com/angular-json-web-token-authentication-tutorial-using-angular2-jwt/)
+[Servidor JWT](https://www.freakyjolly.com/firebase-php-jwt-angular-rest-api-authentication-using-json-web-token-with-guards-example-tutorial-part-2/)
+
 # Ejemplos
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.0.2.
